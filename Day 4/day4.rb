@@ -10,8 +10,7 @@ def room_valid?(name, checksum)
 	letters_count = Hash.new(0)
 	
 	name.split("").each { |l| letters_count[l] += 1 }
-	
-	
+		
 	sorted_letters_count = letters_count.sort do |a, b|
 		if a[1] != b[1]
 			b[1] - a[1]
