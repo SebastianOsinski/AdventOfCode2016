@@ -19,6 +19,6 @@ end
 
 input = File.read('day2_input')
 
-input = "ULL\nRRDDD\nLURDL\nUUUUD"
+#input = "ULL\nRRDDD\nLURDL\nUUUUD"
 
 get_code(WeirdKeypad.new, input)
