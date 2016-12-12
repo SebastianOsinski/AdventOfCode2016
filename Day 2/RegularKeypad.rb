@@ -1,4 +1,4 @@
-class Keypad
+class RegularKeypad
 	attr_reader :last_pressed_button
 	attr_reader :currently_selected_button
 	
