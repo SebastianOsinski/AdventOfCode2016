@@ -1,9 +1,14 @@
+input = File.read("day7_input")
+
+addresses = input.split("\n")
+
+# part one
+
 def contains_ABBA?(string)
   string.match(/([a-z])(?!\1)([a-z])\2\1/)
 end
 
-
-def address_valid?(address)
+def supports_TSL?(address)
   address = address.dup
   hypernets = address.scan(/\[([a-z]+)\]/)
 
@@ -18,8 +23,13 @@ def address_valid?(address)
   rest.any?(&method(:contains_ABBA?))
 end
 
-input = File.read("day7_input")
+puts addresses.select(&method(:supports_TSL?)).size
 
-addresses = input.split("\n")
+#part two
 
-puts addresses.select(&method(:address_valid?)).size
+def supports_SSL?(address)
+  address.match(/([a-z])(?!\1)([a-z])\1.*\[[a-z]*\2\1\2[a-z]*\]/) ||
+  address.match(/\[[a-z]*([a-z])(?!\1)([a-z])\1[a-z]*\].*\2\1\2/)
+end
+
+puts addresses.select(&method(:supports_SSL?)).size
