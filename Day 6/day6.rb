@@ -12,7 +12,8 @@ columns = lines.each_with_object(Array.new(n) { [] }) do |line, acc|
 end
 password = columns.map do |column|
   chars_count = column.each_with_object(Hash.new(0)) { |elem, acc| acc[elem] += 1 }
-  column.max_by { |v| chars_count[v] }
+  # column.max_by { |v| chars_count[v] } part 1
+  column.min_by { |v| chars_count[v] } # part 2
 end
 
 puts password.join('')
