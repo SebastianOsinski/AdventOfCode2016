@@ -3,7 +3,7 @@ class Move
   attr_accessor :steps
 
   def initialize(move)
-    @direction = if move[0] == "L" then :left else :right end
+    @direction = move[0] == 'L' ? :left : :right
     @steps = move[1..-1].to_i
   end
 
@@ -12,11 +12,11 @@ class Move
   end
 end
 
-input = File.read("day1_input")
+input = File.read('day1_input')
 
 directions = [:north, :east, :south, :west]
 
-moves = input.split(", ").map { |x| Move.new x}
+moves = input.split(', ').map { |x| Move.new x }
 puts moves
 
 counts = Hash.new 0
