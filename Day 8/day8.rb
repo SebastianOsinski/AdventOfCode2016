@@ -11,3 +11,4 @@ puts "\n"
 screen.rotate_row(3, 1)
 puts screen
 puts "\n"
+puts screen.lit_pixels_count

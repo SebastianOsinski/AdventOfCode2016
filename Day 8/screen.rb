@@ -5,6 +5,10 @@ class Screen
     @screen = MutableMatrix.build(row_count, col_count) { |_| false }
   end
 
+  def lit_pixels_count
+    @screen.to_a.flatten.reduce(0) { |acc, elem| acc + (elem ? 1 : 0) }
+  end
+
   def rect(width, height)
     (0...width).each do |w|
       (0...height).each do |h|
