@@ -1,14 +1,25 @@
 require_relative 'screen'
+require_relative 'operations_parser'
 
-screen = Screen.new(10, 10)
+input = File.read('day8_input')
+parser = OperationsParser.new
+operations = parser.parse(input)
 
-screen.rect(2, 3)
-puts screen
-puts "\n"
-screen.rotate_column(2, 3)
-puts screen
-puts "\n"
-screen.rotate_row(3, 1)
-puts screen
-puts "\n"
+screen = Screen.new(50, 6)
+
+operations.each do |operation|
+  puts operation
+  first = operation.first_argument
+  second = operation.second_argument
+  screen.send(operation.type, first, second)
+  puts screen
+end
+
 puts screen.lit_pixels_count
+
+
+
+
+
+
+

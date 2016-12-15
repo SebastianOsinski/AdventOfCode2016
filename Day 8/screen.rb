@@ -1,7 +1,7 @@
 require_relative 'mutable_matrix'
 
 class Screen
-  def initialize(row_count, col_count)
+  def initialize(col_count, row_count)
     @screen = MutableMatrix.build(row_count, col_count) { |_| false }
   end
 
@@ -12,7 +12,7 @@ class Screen
   def rect(width, height)
     (0...width).each do |w|
       (0...height).each do |h|
-        @screen[w, h] = true
+        @screen[h, w] = true
       end
     end
   end
