@@ -10,6 +10,8 @@ discs = input.split("\n").map do |line|
   Disc.new(positions_count.to_i, starting_position.to_i)
 end
 
+discs << Disc.new(11, 0) # part two
+
 disc_set = DiscSet.new(discs)
 
 t = 0
